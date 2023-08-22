@@ -50,7 +50,8 @@ function showuserInfo(pro){
     const childNode = `<li id="${pro._id}">${pro.cost}-${pro.product}
                         <button onclick=deletePro('${pro._id}','${pro.cost}')>Delete</button>
                         </li>`
-    parentNode.innerHTML =parentNode.innerHTML+childNode;
+
+      parentNode.innerHTML =parentNode.innerHTML+childNode;
     
   }
 
