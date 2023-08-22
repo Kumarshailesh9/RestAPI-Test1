@@ -40,25 +40,19 @@ window.addEventListener("DOMContentLoaded",()=>{
  })
 
 
-   function showuserInfo(user){
-        
-     document.getElementById('mail').value="";
-     document.getElementById('name').value ="";
-     document.getElementById('mob').value="";
-
-    //  if(localStorage.getItem(user.email) !== null){
-    //     removeUserFromScreen(user.email)
-    //  }
-      
-        const parentNode = document.getElementById('items');
-        const childHTML = `<li id=${user._id}> ${user.name} -${user.email} - ${user.mo}
-                            <button onclick=deleteUser('${user._id}')>DELETE</button>
-                            <button onclick=editDetails('${user.email}')>EDIT</button>
-                            </li>`
-        parentNode.innerHTML = parentNode.innerHTML +childHTML;
-   }
+  function showuserInfo(user){
+    document.getElementById('name').value="";
+    document.getElementById('mail'.value="");
+    document.getElementById('mob').value="";
+    const parentNode = document.getElementById('items')
+    const childNode = `<li id=${user._id}>${user.name}-${user.email}-${user.mo}
+                        <button onclick=deleteUser('${user._id}')>DELETE</button>
+                        <button onclick=editUser('${user.email},${user.name},${user.mo}')>EDIT</button>
+                        </li>`
+    parentNode.innerHTML =parentNode.innerHTML+childNode;
+  }
   
-  function deleteUser(userId){
+   function deleteUser(userId){
     axios.delete(`https://crudcrud.com/api/bda076a6e9424514967667b8c54fe33a/userDetails/${userId}`)
     .then((response) => {
         console.log(response)
@@ -66,7 +60,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     })
     .catch((err) => console.log(err))
 
-   }
+    }
 
 function removeFromScreen(userId){
         const parentNode = document.getElementById('items');
@@ -74,6 +68,9 @@ function removeFromScreen(userId){
         if(childNodeToBeDeleted){
             parentNode.removeChild(childNodeToBeDeleted)
         }
+}
+function editUser(){
+
 }
 
         

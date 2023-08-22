@@ -1,14 +1,15 @@
 
-            function bookAppoiment(){
-                const name = document.getElementById('name').value;
-                localStorage.setItem('fullname',name);
-                const mail = document.getElementById('mail').value;
-                localStorage.setItem('Email',mail);
-                const mob = document.getElementById('mob').value;
-                localStorage.setItem('Mobile',mob);
-                const d = document.getElementById('date').value;
-                localStorage.setItem('AP date',d);
-                const t = document.getElementById('time').value;
-                localStorage.setItem('Ap time',t);
+            function bookAppoiment(event){
+                event.preventDefault();
+                const name = event.target.name.value;
+                localStorage.setItem('user',name);
+                const email = event.target.mail.value;
+                localStorage.setItem('emailID',email);
+                const mo = event.target.mob.value;
+                localStorage.setItem('number',mo);
+                const dt = event.target.date.value;
+                localStorage.setItem('date',dt);
+                const t = event.target.time.value;
+                localStorage.setItem('time',t);
             }
       

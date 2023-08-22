@@ -52,14 +52,25 @@ window.addEventListener("DOMContentLoaded",()=>{
         const delbtn = document.createElement('input');
         delbtn.type="button";
         delbtn.value="Delete";
+        const editbtn = document.createElement('input');
+        editbtn.type="button";
+        editbtn.value="Edit"
         //append delete button to child  node
         newList.appendChild(delbtn);
+        newList.appendChild(editbtn);
         //append child node to parent node
         ulItem.appendChild(newList);
         //function for delete elemet click on delete button
          delbtn.onclick = () => {
             //localStorage.removeItem(userInfo.email);
             ulItem.removeChild(newList);
+            axios.delete("https://crudcrud.com/api/4a1d76fbd2c347a5975085d8f0037ece/userDetails/_id")
+            .then((res)=>{
+                console.log('delete successfully')
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
         }
        
 
